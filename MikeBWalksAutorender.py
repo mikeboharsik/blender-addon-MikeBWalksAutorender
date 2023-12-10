@@ -34,7 +34,7 @@ class MikeBWalksAutoRender(bpy.types.Operator):
             bpy.data.scenes[0].frame_start = start
             bpy.data.scenes[0].frame_end = end
             
-            output_name = out_dir + '\\' + date + "_" + strip.name.lower().replace(' ', '_') + '.mp4'
+            output_name = out_dir + '\\' + date + "_" + strip.name.replace(' ', '_') + '.mp4'
             bpy.context.scene.render.filepath = output_name
             print(f'Rendering animation [{output_name}]...')
             
