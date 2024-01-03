@@ -116,7 +116,10 @@ class MikeBWalksAutoStrip(bpy.types.Operator):
         
         metadata = self.load_metadata()
         for event in metadata:
-            self.create_event_strip(event)
+            if event['name'].startswith('SKIP'):
+                print(f'Skipping event with name [{event["name"]}]')
+            else:
+                self.create_event_strip(event)
             
         self.mute_nonevent_strips()
                 
